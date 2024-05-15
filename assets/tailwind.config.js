@@ -15,6 +15,9 @@ module.exports = {
     extend: {
       colors: {
         brand: "#FD4F00",
+      },
+      boxShadow: {
+        'hard': '4px 4px 0px rgb(22 101 52 / 1)'
       }
     },
   },
