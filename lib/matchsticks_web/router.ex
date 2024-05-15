@@ -17,7 +17,9 @@ defmodule MatchsticksWeb.Router do
   scope "/", MatchsticksWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    # get "/", PageController, :home
+
+    live "/play", GameLive
   end
 
   # Other scopes may use custom stacks.
