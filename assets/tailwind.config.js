@@ -13,6 +13,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      textShadow: {
+        DEFAULT: '2px 2px 0px rgb(22 101 52 / 1)',
+      },
       colors: {
         brand: "#FD4F00",
       },
@@ -32,6 +35,16 @@ module.exports = {
     plugin(({addVariant}) => addVariant("phx-click-loading", [".phx-click-loading&", ".phx-click-loading &"])),
     plugin(({addVariant}) => addVariant("phx-submit-loading", [".phx-submit-loading&", ".phx-submit-loading &"])),
     plugin(({addVariant}) => addVariant("phx-change-loading", [".phx-change-loading&", ".phx-change-loading &"])),
+
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities({
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
 
     // Embeds Hero Icons (https://heroicons.com) into your app.css bundle
     // See your `CoreComponents.icon/1` for more information.

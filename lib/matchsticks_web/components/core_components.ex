@@ -51,7 +51,7 @@ defmodule MatchsticksWeb.CoreComponents do
       phx-remove={hide_modal(@id)}
       class="relative z-50 hidden"
     >
-      <div id={"#{@id}-bg"} class="fixed inset-0 bg-green-900/10 transition-opacity" aria-hidden="true" />
+      <div id={"#{@id}-bg"} class="fixed inset-0 bg-green-900/50 transition-opacity" aria-hidden="true" />
       <div
         class="fixed inset-0 overflow-y-auto"
         aria-labelledby={"#{@id}-title"}
@@ -61,14 +61,14 @@ defmodule MatchsticksWeb.CoreComponents do
         tabindex="0"
       >
         <div class="flex min-h-full items-center justify-center">
-          <div class="w-full max-w-3xl p-4 sm:p-6 lg:py-8">
+          <div class="p-4 sm:p-6 lg:py-8">
             <.focus_wrap
               id={"#{@id}-container"}
               phx-mounted={@show && show_modal(@id)}
               phx-window-keydown={hide_modal(@on_cancel, @id)}
               phx-key="escape"
               phx-click-away={hide_modal(@on_cancel, @id)}
-              class="hidden relative bg-green-50 p-14 transition shadow-hard"
+              class="hidden relative bg-white p-14 transition shadow-hard border-solid border-green-100 border-4"
             >
               <div class="absolute top-6 right-5">
                 <button
@@ -94,7 +94,7 @@ defmodule MatchsticksWeb.CoreComponents do
                   </p>
                 </header>
                 <%= render_slot(@inner_block) %>
-                <div :if={@confirm != [] or @cancel != []} class="ml-6 mb-4 flex items-center gap-5">
+                <div :if={@confirm != [] or @cancel != []} class="flex items-center gap-5 mt-8">
                   <.button
                     :for={confirm <- @confirm}
                     id={"#{@id}-confirm"}
@@ -254,8 +254,9 @@ defmodule MatchsticksWeb.CoreComponents do
     <button
       type={@type}
       class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3",
-        "text-sm font-semibold leading-6 text-white active:text-white/80",
+        "phx-submit-loading:opacity-75 bg-white hover:bg-white/70 py-2 px-3",
+        "text-sm font-semibold leading-6 text-green-900 active:text-green-900/80",
+        "border-solid border-green-700 border-4 shadow-hard",
         @class
       ]}
       {@rest}

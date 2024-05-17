@@ -12,10 +12,13 @@ defmodule Matchsticks.Application do
       MatchsticksWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Matchsticks.PubSub},
+      # Start presence tracking
+      MatchsticksWeb.Presence,
       # Start the Endpoint (http/https)
-      MatchsticksWeb.Endpoint
+      MatchsticksWeb.Endpoint,
       # Start a worker by calling: Matchsticks.Worker.start_link(arg)
       # {Matchsticks.Worker, arg}
+      Matchsticks.GameSupervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
