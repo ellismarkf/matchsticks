@@ -8,7 +8,7 @@ defmodule MatchsticksWeb.HomeLive do
   def render(assigns) do
     ~H"""
     <h1 class="text-white text-xl text-shadow">matchsticks</h1>
-    <.link navigate={~p"/play/#{System.system_time(:second)}"}>New Game</.link>
+    <.link navigate={~p"/play/#{System.system_time(:microsecond)}"}>New Game</.link>
     """
   end
 end
