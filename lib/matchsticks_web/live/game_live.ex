@@ -102,11 +102,13 @@ defmodule MatchsticksWeb.GameLive do
         <section class="inline-flex justify-center items-center">
           <button class={"relative border-solid border-green-50 border-4 p-4 mx-16 shadow-hard #{if @active_player == 1, do: "text-green-50 -translate-y-2", else: "text-green-900"} transition-all"}>
             p1
-            <span :if={@player_id == 1 and @active_player == @player_id} class="absolute -left-48 text-nowrap w-full inline-block whitespace-nowrap">Your turn</span>
+            <span :if={@player_id == 1 and @active_player == @player_id} class="absolute -left-32 text-nowrap w-full inline-block whitespace-nowrap">Your turn</span>
+            <span :if={@player_id == 1 and @active_player != @player_id} class="absolute -left-56 text-nowrap w-full inline-block whitespace-nowrap text-green-900">Waiting for opponent</span>
           </button>
           <button class={"relative border-solid border-green-50 border-4 p-4 mx-16 shadow-hard #{if @active_player == 2, do: "text-green-50 -translate-y-2", else: "text-green-900"} transition-all"}>
             p2
             <span :if={@player_id == 2 and @active_player == @player_id} class="absolute -right-24 text-nowrap w-full inline-block whitespace-nowrap">Your turn</span>
+            <span :if={@player_id == 2 and @active_player != @player_id} class="absolute -right-24 text-nowrap w-full inline-block whitespace-nowrap text-green-900">Waiting for opponent</span>
           </button>
         </section>
         <section class="flex-col justify-center items-center mt-16">

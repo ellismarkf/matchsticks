@@ -5,6 +5,6 @@
 /* This file is for your main application CSS */
 @import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
 body {
-    font-family: 'Press Start 2P';
+    font-family: 'Press Start 2P', monospace;
     text-align: center;
 }
